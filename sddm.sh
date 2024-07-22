@@ -19,7 +19,7 @@ EOF
 )"
 done < <(printf '%s\r' "$SDDM")
 
-cat << EOF
+sudo tee /etc/pam.d/sddm << EOF
 #%PAM-1.0
 auth [success=1 new_authtok_reqd=1 default=ignore] pam_unix.so try_first_pass likeauth nullok
 auth sufficient pam_fprintd.so
